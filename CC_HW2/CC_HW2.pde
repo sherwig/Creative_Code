@@ -29,16 +29,17 @@ void draw() {
   // which circle is the closest?
   for (int i = 0; i < currentCount; i++) {
     float newDist = dist(newX, newY, x[i], y[i]);
-    if (newDist < closestDist) {
+    if (newDist < closestDist) 
+    {
       closestDist = newDist;
       closestIndex = i;
     }
   }
 
   // show original position of the circle and a line to the new position
-  // fill(230);
-  // ellipse(newX, newY, newR * 2, newR * 2);
-  // line(newX, newY, x[closestIndex], y[closestIndex]);
+   //fill(230);
+   //ellipse(newX, newY, newR * 2, newR * 2);
+   //line(newX, newY, x[closestIndex], y[closestIndex]);
 
   // aline it to the closest circle outline
   float angle = atan2(newY - y[closestIndex], newX - x[closestIndex]);
@@ -52,6 +53,7 @@ void draw() {
   for (int i = 0; i < currentCount; i++) {
     fill(255);
     ellipse(x[i], y[i], r[i] * 2, r[i] * 2);
+    
   }
 
   if (currentCount >= maxCount) noLoop();
