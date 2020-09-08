@@ -20,7 +20,6 @@ void setup() {
 
 //Load the pixels from an image and then check if the color at every x and y point are either 0 or 255. 
 //if they are white then continue to draw.
-//image.get
 
 //color c = get(25, 25);
 //fill(c);
@@ -70,8 +69,7 @@ void draw() {
     y[currentCount] = y[closestIndex] + sin(angle) * (r[closestIndex] + newR);
     r[currentCount] = newR;
 
-
-    loadPixels();
+    //loadPixels();
     // We must also call loadPixels() on the PImage since we are going to read its pixels.
     myImage.loadPixels();
     for (int y = 0; y < height; y++) {
@@ -81,14 +79,14 @@ void draw() {
             float r = red(myImage.pixels[loc]);
             float g = green(myImage.pixels[loc]);
             float b = blue(myImage.pixels[loc]);
-
             c = color(r, g, b);
-
         }
     }
     updatePixels();
 
-    if (x[currentCount] > 600 || x[currentCount] < 100 || y[currentCount] > 600 || y[currentCount] < 100) {} else {
+    //Need to check if x[currentCount] color is black or white
+    if (x[currentCount] > 600 || x[currentCount] < 100 || y[currentCount] > 600 || y[currentCount] < 100) {} 
+    else {
         boolean overlapped = false;
         for (int i = 0; i < currentCount - 1; i++) {
             float distance = dist(x[currentCount], y[currentCount], x[i], y[i]);
@@ -105,17 +103,16 @@ void draw() {
     // draw them
     for (int i = 0; i < currentCount; i++) {
         fill(255);
-        //println(x[i]);
         ellipse(x[i], y[i], r[i] * 2, r[i] * 2);
 
     }
 
-    pushStyle();
-    noFill();
-    stroke(255);
-    strokeWeight(1);
-    rect(100, 100, 500, 500);
-    popStyle();
+    //pushStyle();
+    //noFill();
+    //stroke(255);
+    //strokeWeight(1);
+    //rect(100, 100, 500, 500);
+    //popStyle();
 
     if (currentCount >= maxCount) noLoop();
 
