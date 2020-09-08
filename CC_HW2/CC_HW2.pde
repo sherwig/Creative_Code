@@ -32,10 +32,11 @@ void setup() {
 
 void draw() {
     clear();
-    imageLayer.beginDraw();
-    imageLayer.image(myImage, 0, 0);
-    imageLayer.endDraw();
+    //imageLayer.beginDraw();
+    //imageLayer.image(myImage, 0, 0);
+    //imageLayer.endDraw();
 
+  image(myImage, 0, 0);
     // create a random set of parameters
     float newR = random(1, 7);
     float newX = random(newR, width - newR);
