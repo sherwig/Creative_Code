@@ -5,6 +5,8 @@ float[] y = new float[maxCount];
 float[] r = new float[maxCount];
 PImage myImage;
 color c;
+color black= color(0);
+PGraphics imageLayer;
 
 void setup() {
     size(800, 800);
@@ -14,8 +16,10 @@ void setup() {
     x[0] = width / 2;
     y[0] = height / 2;
     r[0] = 10;
-
+    
+    imageLayer= createGraphics(width,height);
     myImage = loadImage("Letter1.png");
+    
 }
 
 //Load the pixels from an image and then check if the color at every x and y point are either 0 or 255. 
@@ -28,18 +32,9 @@ void setup() {
 
 void draw() {
     clear();
-
-    image(myImage, 0, 0);
-
-    //Attempting to use get to get all of the colors of the image. 
-    //for (int i=0; i<width; i++) 
-    //{
-    //  for (int j=0; j<height; j++) 
-    //  {
-    //     c = get(i,j);
-    //     println(c);
-    //  }
-    //}
+    imageLayer.beginDraw();
+    imageLayer.image(myImage, 0, 0);
+    imageLayer.endDraw();
 
     // create a random set of parameters
     float newR = random(1, 7);
@@ -68,24 +63,11 @@ void draw() {
     x[currentCount] = x[closestIndex] + cos(angle) * (r[closestIndex] + newR);
     y[currentCount] = y[closestIndex] + sin(angle) * (r[closestIndex] + newR);
     r[currentCount] = newR;
-
-    //loadPixels();
-    // We must also call loadPixels() on the PImage since we are going to read its pixels.
-    myImage.loadPixels();
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-            int loc = x + y * width;
-            // The functions red(), green(), and blue() pull out the three color components from a pixel.
-            float r = red(myImage.pixels[loc]);
-            float g = green(myImage.pixels[loc]);
-            float b = blue(myImage.pixels[loc]);
-            c = color(r, g, b);
-        }
-    }
-    updatePixels();
-
-    //Need to check if x[currentCount] color is black or white
-    if (x[currentCount] > 600 || x[currentCount] < 100 || y[currentCount] > 600 || y[currentCount] < 100) {} 
+    
+    c = get(int(x[currentCount]),int(y[currentCount]));
+    if (c == black){
+     }
+   // if (x[currentCount] > 600 || x[currentCount] < 100 || y[currentCount] > 600 || y[currentCount] < 100) {} 
     else {
         boolean overlapped = false;
         for (int i = 0; i < currentCount - 1; i++) {
@@ -104,7 +86,6 @@ void draw() {
     for (int i = 0; i < currentCount; i++) {
         fill(255);
         ellipse(x[i], y[i], r[i] * 2, r[i] * 2);
-
     }
 
     //pushStyle();
