@@ -14,20 +14,28 @@ void setup()
     //y[0] = height / 2;
     //r[0] = 10;
     
-    myImage = loadImage("Letter1.png");
+    myImage = loadImage("SamsParty2.png");
     
     bubbleArr=new ArrayList<Bubble>();
     
-    bubbleArr.add(new Bubble(width/2,height/2,10));
-    bubbleArr.add(new Bubble(width/2,200,10));
+    float x[]={width/2, width/2, 200,577};
+    float y[]={height/2, 200, 573,573};
+    float r[]={10,7,12,30};
     
-    bubbleArr.add(new Bubble(200,573,10));
-    bubbleArr.add(new Bubble(577,573,10));
+    
+    bubbleArr.add(new Bubble(x,y,r));
+    
+    //println(x);
+    //bubbleArr.add(new Bubble(width/2,200,10));
+    
+    //bubbleArr.add(new Bubble(200,573,10));
+    //bubbleArr.add(new Bubble(577,573,10));
 }
 
 void draw() {
     clear();
-  
+    
+    image(myImage,0,0);
     myImage.loadPixels();
     
     for (Bubble bub :bubbleArr) 

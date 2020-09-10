@@ -6,14 +6,20 @@ public class Bubble
   float[] y = new float[maxCount];
   float[] r = new float[maxCount];
   
-  public Bubble(float x, float y, float r)
+  public Bubble(float[] x, float[] y, float[] r)
   {
     
     strokeWeight(0.5);    
     // first circle
-    this.x[0] = x;
-    this.y[0] = y;
-    this.r[0] = r;    
+    
+    for (int i=0; i<x.length; i++)
+    {
+     // println(i);
+      this.x[i] = x[i];
+      this.y[i] = y[i];
+      this.r[i] = r[i];    
+      //println(r[i]);
+    }
   }
   
   public void display() 
@@ -49,7 +55,6 @@ public class Bubble
     
     if (c == black){
      }
-   // if (x[currentCount] > 600 || x[currentCount] < 100 || y[currentCount] > 600 || y[currentCount] < 100) {} 
     else {
         boolean overlapped = false;
         for (int i = 0; i < currentCount - 1; i++) {
@@ -61,9 +66,8 @@ public class Bubble
         if (overlapped == false) {
             currentCount++;
         }
-
     }
-
+    
     // draw them
     for (int i = 0; i < currentCount; i++) {
         fill(255);
