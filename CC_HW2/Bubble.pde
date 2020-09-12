@@ -6,31 +6,41 @@ public class Bubble
   float[] y = new float[maxCount];
   float[] r = new float[maxCount];
   
-  public Bubble(float[] x, float[] y, float[] r)
-  {
+  //public Bubble(float[] x, float[] y, float[] r)
+  //{
     
-    strokeWeight(0.5);    
-    // first circle
+  //  //strokeWeight(0.5);    
     
-    for (int i=0; i<x.length; i++)
-    {
-     // println(i);
-      this.x[i] = x[i];
-      this.y[i] = y[i];
-      this.r[i] = r[i];    
-      //println(r[i]);
-    }
+  //  for (int i=0; i<x.length; i++)
+  //  {
+  //   // println(i);
+  //    this.x[i] = x[i];
+  //    this.y[i] = y[i];
+  //    this.r[i] = r[i];
+  //    currentCount++;
+  //    //println(r[i]);
+  //  }
+  //}
+  
+  public Bubble(float x, float y, float r)
+  {   
+      this.x[0] = x;
+      this.y[0] = y;
+      this.r[0] = r;    
   }
   
-  public void display() 
+  public boolean display() 
   {
-    float newR = random(1, 7);
+    float newR = random(1, this.r[0]);
     float newX = random(newR, width - newR);
     float newY = random(newR, height - newR);
-
+    
+    boolean checker=false;
+    
     float closestDist = 10000000;
     int closestIndex = 0;
     // which circle is the closest?
+    
     for (int i = 0; i < currentCount; i++) {
         float newDist = dist(newX, newY, x[i], y[i]);
         if (newDist < closestDist) {
@@ -63,8 +73,10 @@ public class Bubble
                 overlapped = true;
             }
         }
+        
         if (overlapped == false) {
             currentCount++;
+            checker=true;
         }
     }
     
@@ -74,9 +86,26 @@ public class Bubble
         ellipse(x[i], y[i], r[i] * 2, r[i] * 2);
     }
 
-    if (currentCount >= maxCount) noLoop();   
+    if (currentCount >= maxCount) noLoop();
+     return checker;
   }
   
-  
-  
+  void clearArrays() 
+  {
+    for (int i=0; i<x.length; i++) 
+    {
+      x[i]=0;   
+    }  
+    for (int i=0; i<y.length; i++) 
+    {
+      y[i]=0;   
+    }  
+    
+    for (int i=0; i<r.length; i++) 
+    {
+      r[i]=0;   
+    }  
+    
+  }
+
 }
