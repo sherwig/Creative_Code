@@ -12,10 +12,6 @@ void setup()
 {
     size(800, 800);
     //strokeWeight(0.5);
-    //// first circle
-    //x[0] = width / 2;
-    //y[0] = height / 2;
-    //r[0] = 10;
     
     myImage = loadImage("SamsParty_wig.png");
     
@@ -128,6 +124,8 @@ void fillArrays()
     bubbleArr.add(new Bubble(744,202,radius));
     bubbleArr.add(new Bubble(739,559,radius));
     bubbleArr.add(new Bubble(757,439,radius));
+    bubbleArr.add(new Bubble(46,416,radius));
+    bubbleArr.add(new Bubble(43,536,radius));
     
     //For Ze_wig
     bubbleArr.add(new Bubble(464,718,radius_wig));
@@ -165,6 +163,10 @@ void fillArrays()
     bubbleArr.add(new Bubble(701,747,radius_wig)); 
     bubbleArr.add(new Bubble(512,767,radius_wig));
     bubbleArr.add(new Bubble(479,770,radius_wig));
+    bubbleArr.add(new Bubble(632,763,radius_wig));
+    bubbleArr.add(new Bubble(665,761,radius_wig));
+    bubbleArr.add(new Bubble(774,748,radius_wig));
+    bubbleArr.add(new Bubble(770,718,radius_wig));
    
 }
 
