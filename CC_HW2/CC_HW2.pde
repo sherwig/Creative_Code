@@ -34,7 +34,7 @@ void setup()
 void draw() {
     clear();
     
-    //image(myImage,0,0);
+    image(myImage,0,0);
 
     for (Bubble bub :bubbleArr) 
     {
