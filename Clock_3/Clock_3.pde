@@ -44,8 +44,8 @@ void setup() {
   // file6.loop();
 
 
-
-
+  file.play();
+  file.loop();
 }
 
 
@@ -67,8 +67,8 @@ void draw() {
   // textSize(20);
   // text(s,50,50);
 
-  setUnder();
-  println(under10, under20,under30,under40,under50,under60);
+  // setUnder();
+  // println(under10, under20,under30,under40,under50,under60);
 
   // draw mesh
   for (float iv = 0; iv < vCount; iv++) {
@@ -84,6 +84,7 @@ void draw() {
 
       if (s<=10)
       {
+        file.rate(1);
         // file.play();
         under60=false;
         under10=true;
@@ -93,6 +94,7 @@ void draw() {
 
       else if(s>10 &&s<=20)
       {
+        file.rate(1.2);
         under10=false;
         under20=true;
         // file2.play();
@@ -101,6 +103,7 @@ void draw() {
       }
       else if(s>20 &&s<=30)
       {
+        file.rate(1.4);
         under20=false;
         under30=true;
         // file3.play();
@@ -109,6 +112,7 @@ void draw() {
 
       else if(s>30 &&s<=40)
       {
+        file.rate(1.6);
         under30=false;
         under40=true;
         // file4.play();
@@ -118,6 +122,7 @@ void draw() {
 
       else if(s>40 &&s<=50)
       {
+        file.rate(1.8);
         under40=false;
         under50=true;
         // file5.play();
@@ -127,6 +132,7 @@ void draw() {
 
       else
       {
+        file.rate(2);
         under50=false;
         under60=true;
         // file6.play();
