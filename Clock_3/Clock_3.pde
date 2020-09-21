@@ -1,5 +1,5 @@
 // Original Code https://www.openprocessing.org/sketch/60945
-
+import processing.sound.*;
 // grid definition horizontal
 int uCount = 60;
 float uMin = -20;
@@ -16,34 +16,14 @@ int offsetX = 0, offsetY = 0, clickX = 0, clickY = 0;
 float rotationX = 0, rotationY = -1.1, targetRotationX = 0, targetRotationY = -1.1, clickRotationX, clickRotationY;
 
 
-import processing.sound.*;
-SoundFile file;
-SoundFile file2;
-SoundFile file3;
-SoundFile file4;
-SoundFile file5;
-SoundFile file6;
 
-boolean under10=false;
-boolean under20=false;
-boolean under30=false;
-boolean under40=false;
-boolean under50=false;
-boolean under60=false;
+SoundFile file;
+
 
 
 void setup() {
   size(800, 800, P3D);
   file = new SoundFile(this, "60bpm.mp3");
-  file2 = new SoundFile(this, "80bpm.mp3");
-  file3 = new SoundFile(this, "100bpm.mp3");
-  file4 = new SoundFile(this, "120bpm.mp3");
-  file5 = new SoundFile(this, "140bpm.mp3");
-  file6 = new SoundFile(this, "160bpm.mp3");
-  // file6.play();
-  // file6.loop();
-
-
   file.play();
   file.loop();
 }
@@ -63,12 +43,6 @@ void draw() {
   scale(25);
 
   s=second();
-  // println(s);
-  // textSize(20);
-  // text(s,50,50);
-
-  // setUnder();
-  // println(under10, under20,under30,under40,under50,under60);
 
   // draw mesh
   for (float iv = 0; iv < vCount; iv++) {
@@ -85,9 +59,6 @@ void draw() {
       if (s<=10)
       {
         file.rate(1);
-        // file.play();
-        under60=false;
-        under10=true;
         vertex(x+sin(frameCount*.02), y, z);
 
       }
@@ -95,27 +66,18 @@ void draw() {
       else if(s>10 &&s<=20)
       {
         file.rate(1.2);
-        under10=false;
-        under20=true;
-        // file2.play();
         vertex(x+cos(frameCount*.02), y+sin(frameCount*.02), z);
 
       }
       else if(s>20 &&s<=30)
       {
         file.rate(1.4);
-        under20=false;
-        under30=true;
-        // file3.play();
         vertex(x+(sin(frameCount*.02)*sin(frameCount*.02)), y+sin(frameCount*.02), z+sin(pow(cos(frameCount*.02),2)));
       }
 
       else if(s>30 &&s<=40)
       {
         file.rate(1.6);
-        under30=false;
-        under40=true;
-        // file4.play();
         vertex(x+cos(frameCount*.02), y+sin(frameCount*.02), z+sin(frameCount*.02));
 
       }
@@ -123,9 +85,6 @@ void draw() {
       else if(s>40 &&s<=50)
       {
         file.rate(1.8);
-        under40=false;
-        under50=true;
-        // file5.play();
         vertex(x+(sin(tan(cos(frameCount*.02)))), y+sin(pow(4,sin(frameCount*.02))), z+sin(pow(cos(frameCount*.02),2)));
 
       }
@@ -133,9 +92,6 @@ void draw() {
       else
       {
         file.rate(2);
-        under50=false;
-        under60=true;
-        // file6.play();
         vertex(x+sin(frameCount*.02), y+sin(frameCount*.01), z+tan(frameCount*.01));
       }
       // vertex(x+sin(frameCount*.02), y+sin(frameCount*.01), z+sin(frameCount*.01));
@@ -188,40 +144,6 @@ void draw() {
     endShape();
   }
 }
-
-
-void setUnder()
-{
-  if (under10==true)
-  {
-    file.play();
-  }
-
-  else if(under20==true)
-  {
-    file2.play();
-  }
-
-  else if(under30==true)
-  {
-    file3.play();
-  }
-
-  else if(under40==true)
-  {
-    file4.play();
-  }
-  else if(under50==true)
-  {
-    file5.play();
-  }
-  else if(under60==true)
-  {
-    file6.play();
-  }
-
-}
-
 
 
 
