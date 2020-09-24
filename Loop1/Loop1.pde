@@ -1,36 +1,5 @@
-// M_3_2_04.pde
-//
-// Generative Gestaltung, ISBN: 978-3-87439-759-9
-// First Edition, Hermann Schmidt, Mainz, 2009
-// Hartmut Bohnacker, Benedikt Gross, Julia Laub, Claudius Lazzeroni
-// Copyright 2009 Hartmut Bohnacker, Benedikt Gross, Julia Laub, Claudius Lazzeroni
-//
-// http://www.generative-gestaltung.de
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-/**
- * draws a mesh using u-v-coordinates. change u and v ranges using different keys
- *
- * MOUSE
- * click + drag        : rotate
- *
- * KEYS
- * 1/2                 : uMin -/+
- * 3/4                 : uMax -/+
- * 5/6                 : vMin -/+
- * 7/8                 : vMax -/+
- * arrow left/right    : uMin, uMax -/+
- * arrow down/up       : vMin, vMax -/+
- * p                   : save pdf (may not look correctly due to missing depth sorting)
- */
+//Original Code from Generative Design
+// https://www.openprocessing.org/sketch/60943
 
 import controlP5.*;
 
@@ -75,18 +44,16 @@ float frameCountLooped = 1;
 float loopProgress=0;
 float loopProgressRadians=0;
 
+boolean recording=false;
+
 // view rotation
 int offsetX = 0, offsetY = 0, clickX = 0, clickY = 0;
 float rotationX = 1, rotationY = 0.3, targetRotationX = 0, targetRotationY = 0, clickRotationX, clickRotationY;
 
 
 void setup() {
-  size(800, 800, P3D);
+  size(1260, 900, P3D);
   cp5 = new ControlP5(this);
-
-
-  // setView();
-  // scale(100);
 
 
     // cp5.addSlider("uCount").setPosition(25,50).setRange(0,100).setSize(200,20);
@@ -175,10 +142,26 @@ void draw() {
 
 void updateLoopRecording() {
   // start/stop recording, and progress
-  // if(saveVideo) {
-  //   if(frameCount == loopFrames - 1) startRecording();
-  //   if(frameCount == loopFrames * 2) stopRecording();
+  // if(frameCount == loopFrames - 1)
+  // {
+  //     recording=true;
+  //     if(frameCount == loopFrames * 2) recording=false;
+  //
+  //
   // }
+  //
+  // if(recording)
+  // {
+  //   saveFrame("output/loop1_###.png");
+  //
+  // }
+
+  //
+  // if()
+  // {
+  //   recording=!recording;
+  // }
+
   // create a looped framecount & normalized progress
   frameCountLooped = frameCount % loopFrames;
   loopProgress = frameCountLooped / loopFrames;
@@ -191,36 +174,10 @@ void updateLoopRecording() {
 
 void keyPressed(){
 
-  if(key=='1') uMin -= 0.1;
-  if(key=='2') uMin += 0.1;
-  if(key=='3') uMax -= 0.1;
-  if(key=='4') uMax += 0.1;
-  if(key=='5') vMin -= 0.1;
-  if(key=='6') vMin += 0.1;
-  if(key=='7') vMax -= 0.1;
-  if(key=='8') vMax += 0.1;
-
-  if (keyCode == LEFT) {
-    uMin -= 0.1;
-    uMax -= 0.1;
-  }
-  if (keyCode == RIGHT) {
-    uMin += 0.1;
-    uMax += 0.1;
-  }
-  if (keyCode == DOWN) {
-    vMin -= 0.1;
-    vMax -= 0.1;
-  }
-  if (keyCode == UP) {
-    vMin += 0.1;
-    vMax += 0.1;
-  }
-
-  if(key==' ') {
-   if(frameCount == loopFrames - 1) ;
-   if(frameCount == loopFrames * 2) ;
- }
+  // if(key=='r'|| key=='R')
+  // {
+  //  recording=!recording;
+  // }
 
 }
 
@@ -231,8 +188,6 @@ void mousePressed(){
   clickRotationX = rotationX;
   clickRotationY = rotationY;
 }
-
-
 
 void setView() {
   translate(width*0.5,height*0.5);
