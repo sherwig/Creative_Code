@@ -7,36 +7,22 @@ ControlP5 cp5;
 // grid definition horizontal
 int uCount = 50;
 int uCount2 = 40;
-//30
-//63
-//64
+
 float uMin = -3;
 float uMin2 = 9.19;
-//0
-//84
-//9.19
+
 float uMax = 72.79;
 float uMax2 = 56.39;
-//5
-//55.20
-//56.39
 
 // grid definition vertical
 int vCount = 40;
 int vCount2 = 85;
-//30
-//84
-//85
+
 float vMin = 2.39;
 float vMin2 = -11.20;
-//-1
-//4.4
-//-11.20
+
 float vMax = 3.75;
 float vMax2 = 18.30;
-//1
-//0.00
-//18.30
 
 int loopFrames = 960; // 4-second loop (60fps * 4)
 boolean saveVideo = false;
@@ -45,6 +31,13 @@ float loopProgress=0;
 float loopProgressRadians=0;
 
 boolean recording=false;
+
+float opacity=100;
+float r=255;
+float g=255;
+float b=255;
+
+float scaleVal=150;
 
 // view rotation
 int offsetX = 0, offsetY = 0, clickX = 0, clickY = 0;
@@ -55,7 +48,9 @@ void setup() {
   size(1260, 900, P3D);
   cp5 = new ControlP5(this);
 
+  rotateX(-50);
 
+    //Sliders to change mesh shape and design values
     // cp5.addSlider("uCount").setPosition(25,50).setRange(0,100).setSize(200,20);
     // cp5.addSlider("uMin").setPosition(25,75).setRange(-20,20).setSize(200,20);
     // cp5.addSlider("uMax").setPosition(25,100).setRange(0,80).setSize(200,20);
@@ -64,6 +59,14 @@ void setup() {
     // cp5.addSlider("vMin").setPosition(25,150).setRange(-20,20).setSize(200,20);
     // cp5.addSlider("vMax").setPosition(25,175).setRange(0,30).setSize(200,20);
 
+     // cp5.addSlider("opacity").setPosition(25,200).setRange(0,255).setSize(200,20);
+     //
+     // cp5.addSlider("r").setPosition(25,225).setRange(0,255).setSize(200,20);
+     // cp5.addSlider("g").setPosition(25,250).setRange(0,255).setSize(200,20);
+     // cp5.addSlider("b").setPosition(25,275).setRange(0,255).setSize(200,20);
+     //
+     // cp5.addSlider("scaleVal").setPosition(25,300).setRange(40,300).setSize(200,20);
+
 }
 
 
@@ -71,19 +74,14 @@ void draw() {
   updateLoopRecording();
 
   background(0);
-  fill(255);
+  fill(110+60*sin(frameCount*.05),103,255, 40+20*sin(frameCount*.05));
   strokeWeight(.01);
-
 
   pushMatrix();
   setView();
-
-  scale(70);
-
+  scale(scaleVal);
 
   // draw mesh
-  // scale(sin(loopProgressRadians));
-
   for (float iv = vCount-1; iv >= 0; iv--) {
     beginShape(QUAD_STRIP);
     for (float iu = 0; iu <= uCount; iu++) {
@@ -105,10 +103,6 @@ void draw() {
       y=lerp(y,y2,abs(sin(loopProgressRadians)));
       z=lerp(z,z2,abs(sin(loopProgressRadians)));
 
-      // x=lerp(x,x2,loopProgressRadians);
-      // y=lerp(y,y2,loopProgressRadians);
-      // z=lerp(z,z2,loopProgressRadians);
-
       vertex(x+cos(frameCount*.01), y+cos(frameCount*.01), z);
 
       v = map(iv+1, 0, vCount, vMin, vMax);
@@ -125,17 +119,12 @@ void draw() {
       y=lerp(y,y2,abs(sin(loopProgressRadians)));
       z=lerp(z,z2,abs(sin(loopProgressRadians)));
 
-      // x=lerp(x,x2,loopProgressRadians);
-      // y=lerp(y,y2,loopProgressRadians);
-      // z=lerp(z,z2,loopProgressRadians);
-
       vertex(x+sin(frameCount*.01), y+sin(frameCount*.01), z);
-      // println(abs(sin(loopProgressRadians)));
 
     }
     endShape();
   }
-    popMatrix();
+  popMatrix();
 
 }
 
@@ -145,10 +134,9 @@ void updateLoopRecording() {
   // if(frameCount == loopFrames - 1)
   // {
   //     recording=true;
-  //     if(frameCount == loopFrames * 2) recording=false;
-  //
   //
   // }
+  // if(frameCount == loopFrames * 2) recording=false;
   //
   // if(recording)
   // {
@@ -156,31 +144,12 @@ void updateLoopRecording() {
   //
   // }
 
-  //
-  // if()
-  // {
-  //   recording=!recording;
-  // }
-
   // create a looped framecount & normalized progress
   frameCountLooped = frameCount % loopFrames;
   loopProgress = frameCountLooped / loopFrames;
   loopProgressRadians = loopProgress * TWO_PI;
 
-  // println(frameCountLooped, loopFrames, loopProgress);
-
 }
-
-
-void keyPressed(){
-
-  // if(key=='r'|| key=='R')
-  // {
-  //  recording=!recording;
-  // }
-
-}
-
 
 void mousePressed(){
   clickX = mouseX;
@@ -191,6 +160,7 @@ void mousePressed(){
 
 void setView() {
   translate(width*0.5,height*0.5);
+  rotateY(loopProgressRadians);
 
   if (mousePressed) {
     offsetX = mouseX-clickX;
