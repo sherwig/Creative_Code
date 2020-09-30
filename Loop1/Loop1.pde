@@ -48,7 +48,7 @@ void setup() {
   size(1260, 900, P3D);
   cp5 = new ControlP5(this);
 
-  rotateX(-50);
+  // rotateX(-50);
 
     //Sliders to change mesh shape and design values
     // cp5.addSlider("uCount").setPosition(25,50).setRange(0,100).setSize(200,20);
@@ -58,14 +58,14 @@ void setup() {
     // cp5.addSlider("vCount").setPosition(25,125).setRange(0,100).setSize(200,20);
     // cp5.addSlider("vMin").setPosition(25,150).setRange(-20,20).setSize(200,20);
     // cp5.addSlider("vMax").setPosition(25,175).setRange(0,30).setSize(200,20);
-
-     // cp5.addSlider("opacity").setPosition(25,200).setRange(0,255).setSize(200,20);
-     //
-     // cp5.addSlider("r").setPosition(25,225).setRange(0,255).setSize(200,20);
-     // cp5.addSlider("g").setPosition(25,250).setRange(0,255).setSize(200,20);
-     // cp5.addSlider("b").setPosition(25,275).setRange(0,255).setSize(200,20);
-     //
-     // cp5.addSlider("scaleVal").setPosition(25,300).setRange(40,300).setSize(200,20);
+    //
+    //  cp5.addSlider("opacity").setPosition(25,200).setRange(0,255).setSize(200,20);
+    //
+    //  cp5.addSlider("r").setPosition(25,225).setRange(0,255).setSize(200,20);
+    //  cp5.addSlider("g").setPosition(25,250).setRange(0,255).setSize(200,20);
+    //  cp5.addSlider("b").setPosition(25,275).setRange(0,255).setSize(200,20);
+    //
+    //  cp5.addSlider("scaleVal").setPosition(25,300).setRange(40,300).setSize(200,20);
 
 }
 
