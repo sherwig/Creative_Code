@@ -27,9 +27,7 @@ public class Mountain1 extends MountainSuper{
     shape.vertex(mountainPoint-mountainOffset, mountainPoint-(mountainOffset*3));
     shape.vertex(mountainPoint, mountainPoint-(mountainOffset*4));
 
-
     shape.endShape(CLOSE);
-
     shape.strokeJoin(MITER);
     shape.setStroke(color(r,g,b,alpha));
     shape.setStrokeWeight(3);

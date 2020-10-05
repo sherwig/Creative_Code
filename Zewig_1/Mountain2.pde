@@ -18,30 +18,22 @@ public class Mountain2 extends MountainSuper{
     shape.beginShape();
     shape.noFill();
     smooth();
+    shape.strokeCap(ROUND);
 
+    shape.vertex(150, 0);
     shape.vertex(0, 0);
-
-    shape.vertex(60+20*sin(frameCount*.05), -100);
+    shape.vertex(60, -100);
     shape.vertex(60, -100);
     shape.vertex(80, -80);
     shape.vertex(80, -80);
     shape.vertex(100, -120);
     shape.vertex(100, -120);
 
-    shape.vertex(150, 0);
-
 
     shape.endShape(CLOSE);
-
-
-    shape.strokeJoin(MITER);
     shape.setStroke(color(r,g,b,alpha));
     shape.setStrokeWeight(.5);
     shape.setFill(color(r,g,b,alpha));
-
-    println(60);
-
   };
-
 
 }

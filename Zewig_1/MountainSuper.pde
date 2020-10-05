@@ -127,18 +127,19 @@ public class MountainSuper
      float x = (amplitude-low)+(amplitude-high) * cos(TWO_PI * frameCount / period);
      x=abs(x);
      shape.scale(x);
-     println(x);
+     // println(x);
     };
 
 
-    void vertexScale(float offset, float speed, int mod)
+    void vertexScale(float offset, float speed)
      {
-       for (int i = 0; i < shape.getVertexCount()%mod; i++) {
+       for (int i = 2; i < shape.getVertexCount(); i++)
+       {
          PVector v = shape.getVertex(i);
          // v.x=v.x+offset*sin(frameCount*speed);
          v.y=v.y+offset*sin(frameCount*speed);
          shape.setVertex(i,v);
-      }
+       }
 
      };
 
