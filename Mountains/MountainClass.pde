@@ -1,8 +1,6 @@
 //MountainClass.pde
-
 public class Mountain
 {
-
   float mountainOffset=150;
   float mountainPoint=150;
   float turnX=100;
@@ -27,11 +25,7 @@ public class Mountain
     vec[0]= new PVector(vectors[3].x-200,vectors[3].y);
     vec[1]= new PVector(vectors[4].x,vectors[4].y+400);
 
-
-    // println(vectors[2]);
-
   }
-
 
   public void display()
   {
@@ -39,6 +33,7 @@ public class Mountain
     arc(vec[0].x, vec[0].y, turnX*sin(frameCount/.05), turnY, 0, loopProgressRadians);
     arc(vec[1].x, vec[1].y, random(150,200), random(25,50)*sin(frameCount/.05), 0, loopProgressRadians);
 
+    //For ski slope coming down mountain.
     // x=lerp(vectors[3].x,vectors[3].x+40,totalProgress);
     // y=lerp(vectors[3].y,vectors[3].y+400,totalProgress);
 
@@ -105,21 +100,12 @@ public class Mountain
 
   }
 
-  // public void setOpacity()
-  // {
-  //   setStroke(color(0,0,0,amount));
-  //
-  // }
 
   void vertexScale(float offset, float speed)
    {
        for (int i = 0; i < vectors.length; i++)
        {
-         // PVector v;
-         // vectors.getVertex(i);
-         // v.x=v.x+offset*sin(frameCount*speed);
          vectors[i].y=vectors[i].y+offset*sin(frameCount*speed);
-         // shape.setVertex(i,v);
        }
      }
 

@@ -45,48 +45,29 @@ void setup() {
     rows = height / videoScale;
 
     mountainArr = new ArrayList <Mountain> ();
-
-
     mountainArr.add(new Mountain(300,100));
-
-    // mountainArr.add(new Mountain(300,400));
-    // mountainArr.add(new Mountain(600,400));
-    //
-    // mountainArr.add(new Mountain(900,400));
-    // mountainArr.add(new Mountain(1200,400));
-    // mountainArr.add(new Mountain(1500,400));
 
   }
 
   void draw() {
-    float x = getSinScale(300, 40, 600);
-    col3B = int(x);
-    // stroke(0,255);
+    //For a backgorund Gradient
+    // float x = getSinScale(300, 40, 600);
+    // col3B = int(x);
+    // // stroke(0,255);
+    //
+    // float colRedSin = getSinScale(60, 20, 600);
+    //
+    // col1R = int(colRedSin);
+    // col3 = color(col3R, col3G, col3B, 100);
+    // col1 = color(col1R, col1G, col1B, 100);
 
-    float colRedSin = getSinScale(60, 20, 600);
-
-    col1R = int(colRedSin);
-    col3 = color(col3R, col3G, col3B, 100);
-    col1 = color(col1R, col1G, col1B, 100);
-    // gradient.quad(width*2,height*2,col1,col3,col1,col1);
-
-    pushMatrix();
-    // gradient.quad(width*2,height*2,col1,col3,col1,col1);
-    // gradient.radial(width * 3, height * 3, col1, col3, 100);
-    popMatrix();
 
     updateLoopRecording();
-    // drawMountain();
     for (Mountain mount: mountainArr) {
         mount.display();
         mount.vertexScale(.3,.09);
     }
     addRandom();
-
-    // float opac=changeOpacityOT();
-    // stroke(0,opac);
-
-
 
   }
 
@@ -108,19 +89,6 @@ void setup() {
       }
     }
   }
-
-  // void vertexScale(float offset, float speed)
-  //  {
-  //    for (int i = 2; i < mountainArr.getVertexCount(); i++)
-  //    {
-  //      PVector v = mountainArr.getVertex(i);
-  //      // v.x=v.x+offset*sin(frameCount*speed);
-  //      v.y=v.y+offset*sin(frameCount*speed);
-  //      shape.setVertex(i,v);
-  //    }
-  //
-  //  }
-
 
   int randyBoi()
   {
@@ -164,16 +132,12 @@ float getSinScale(float high, float low, float period) {
     // if(frameCount == loopFrames - 1)
     // {
     //     recording=true;
-    //
     // }
     // if(frameCount == loopFrames * 2) recording=false;
-    //
     // if(recording)
     // {
     //   saveFrame("output/loop1_###.png");
-    //
     // }
-
     // create a looped framecount & normalized progress
     frameCountLooped = frameCount % loopFrames;
     loopProgress = frameCountLooped / loopFrames;
