@@ -2,7 +2,7 @@
 //Tutorial on original shape.
 //https://www.openprocessing.org/sketch/60952
 
-int pointCount = 600;
+int pointCount = 800;
 int freqX = 1;
 int freqY = 4;
 int freqZ = 2;
@@ -26,7 +26,7 @@ PVector lissajousPoints[];
 
 
 // ------ mouse interaction ------
-int offsetX = 0, offsetY = 0, clickX = 0, clickY = 0, zoom = -400;
+int offsetX = 0, offsetY = 0, clickX = 0, clickY = 0, zoom = -300;
 float rotationX = 0, rotationY = 0, targetRotationX = 0, targetRotationY = 0, clickRotationX, clickRotationY;
 
 
@@ -122,11 +122,16 @@ void keyPressed() {
     // if (keyCode == DOWN) phiY -= 15;
     // if (keyCode == UP) phiY += 15;
 
-    if (keyCode == RIGHT) index = getRandomInt();
+    if (keyCode == RIGHT)
+    {
+      index = getRandomInt();
+      // println(index);
+      println("freqX: " + freqX + ", freqY: " + freqY + ", freqZ: " + freqZ + ", phiX: " + phiX + ", phiY: " + phiY);
+    }
 
     calculateLissajousPoints();
 
-    // println("freqX: " + freqX + ", freqY: " + freqY + ", freqZ: " + freqZ + ", phiX: " + phiX + ", phiY: " + phiY);
+
 
 }
 
