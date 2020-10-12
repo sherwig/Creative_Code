@@ -1,0 +1,202 @@
+{
+"error": false,
+    "jokes": [
+        {
+            "category": "Programming",
+            "type": "twopart",
+            "setup": "Hey baby I wish your name was asynchronous...",
+            "delivery": "... so you'd give me a callback.",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+
+            "freqX" : 10,
+            "freqY": 4,
+            "freqZ": 6,
+            "phiX": 240.0,
+            "phiY" : 0.0,
+            "id": 0,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "single",
+            "joke": "\"Can I tell you a TCP joke?\"\n\"Please tell me a TCP joke.\"\n\"OK, I'll tell you a TCP joke.\"",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 10,
+            "freqY": 3,
+            "freqZ": 2,
+            "phiX": 200.0,
+            "phiY" : 100.0,
+            "id": 1,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "single",
+            "joke": "ASCII silly question, get a silly ANSI.",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 10,
+            "freqY": 9,
+            "freqZ": 0,
+            "phiX": 150.0,
+            "phiY" : 0.0,
+            "id": 2,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "twopart",
+            "setup": "Why did the functional programming developer get thrown out of school?",
+            "delivery": "Because he refused to take classes.",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 4,
+            "freqY": 7,
+            "freqZ": 0,
+            "phiX": 300.0,
+            "phiY" : 60.0,
+            "id": 3,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "single",
+            "joke": "Judge: \"I sentence you to the maximum punishment...\"\nMe (thinking): \"Please be death, please be death...\"\nJudge: \"Learn Java!\"\nMe: \"Damn.\"",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 10,
+            "freqY": 5,
+            "freqZ": 7,
+            "phiX": 70.0,
+            "phiY" : 80.0,
+            "id": 4,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "single",
+            "joke": "Being a self-taught developer is almost the same as being a cut neck chicken because you have no sense of direction in the beginning.",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 1,
+            "freqY": 20,
+            "freqZ": 8,
+            "phiX": 400.0,
+            "phiY" : 0.0,
+            "id": 5,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "twopart",
+            "setup": "Why do programmers wear glasses?",
+            "delivery": "Because they need to C#",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 5,
+            "freqY": 2,
+            "freqZ": 1,
+            "phiX": 260.0,
+            "phiY" : 0.0,
+            "id": 6,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "twopart",
+            "setup": "Why did the Python programmer not respond to the foreign mails he got?",
+            "delivery": "Because his interpreter was busy collecting garbage.",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 7,
+            "freqY": 3,
+            "freqZ": 2,
+            "phiX": 315.0,
+            "phiY": 150.0,
+            "id": 7,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "single",
+            "joke": "Four engineers get into a car. The car won't start.\nThe Mechanical engineer says \"It's a broken starter\".\nThe Electrical engineer says \"Dead battery\".\nThe Chemical engineer says \"Impurities in the gasoline\".\nThe IT engineer says \"Hey guys, I have an idea: How about we all get out of the car and get back in\".",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 10,
+            "freqY": 3,
+            "freqZ": 2,
+            "phiX": 270.0,
+            "phiY" : 50.0,
+            "id": 8,
+            "lang": "en"
+        },
+        {
+            "category": "Programming",
+            "type": "single",
+            "joke": "A SQL statement walks into a bar and sees two tables.\nIt approaches, and asks \"may I join you?\"",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false
+            },
+            "freqX" : 7,
+            "freqY": 3,
+            "freqZ": 2,
+            "phiX": 150.0,
+            "phiY" : 150.0,
+            "id": 9,
+            "lang": "en"
+        }
+    ],
+    "amount": 10
+
+  }
