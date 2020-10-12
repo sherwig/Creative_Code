@@ -26,7 +26,7 @@ PVector lissajousPoints[];
 
 
 // ------ mouse interaction ------
-int offsetX = 0, offsetY = 0, clickX = 0, clickY = 0, zoom = -300;
+int offsetX = 0, offsetY = 0, clickX = 0, clickY = 0, zoom = -350;
 float rotationX = 0, rotationY = 0, targetRotationX = 0, targetRotationY = 0, clickRotationX, clickRotationY;
 
 
