@@ -154,26 +154,26 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
         stroke(r, g+60*sin(frameCount*sinSpeed), b, 127+80*sin(frameCount*sinSpeed));
 
 
-      float gridX = x * spacing;
-      float gridY = y * spacing;
+      float gridX = x ;
+      float gridY = y ;
       // float gridZ = noise(gridX * noiseZoom, gridY * noiseZoom);
-      float gridU = x / gridCells;
-      float gridV = y / gridCells;
-      float gridRightX = (x+1) * spacing;
+      float gridU = x ;
+      float gridV = y ;
+      float gridRightX = (x+1) ;
       float gridRightY = gridY;
       // float gridRightZ = noise(gridRightX * noiseZoom, gridRightY * noiseZoom);
-      float gridRightU = (x+1) / gridCells;
-      float gridRightV = y / gridCells;
-      float gridDownRightX = (x+1) * spacing;
-      float gridDownRightY = (y+1) * spacing;
+      float gridRightU = (x+1) ;
+      float gridRightV = y ;
+      float gridDownRightX = (x+1);
+      float gridDownRightY = (y+1);
       // float gridDownRightZ = noise(gridDownRightX * noiseZoom, gridDownRightY * noiseZoom);
-      float gridDownRightU = (x+1) / gridCells;
-      float gridDownRightV = (y+1) / gridCells;
+      float gridDownRightU = (x+1);
+      float gridDownRightV = (y+1);
       float gridDownX = gridX;
-      float gridDownY = (y+1) * spacing;
+      float gridDownY = (y+1);
       // float gridDownZ = noise(gridDownX * noiseZoom, gridDownY * noiseZoom);
-      float gridDownU = x / gridCells;
-      float gridDownV = (y+1) / gridCells;
+      float gridDownU = x;
+      float gridDownV = (y+1);
 
         //stroke(255,alpha*255f);
         strokeWeight(2);
