@@ -3,6 +3,8 @@ import KinectPV2.*;
 import org.openkinect.freenect.*;
 import org.openkinect.processing.*;
 import controlP5.*;
+import processing.video.*;
+Movie myMovie;
 KinectPV2 kinect;
 
 // Angle for rotation
@@ -69,14 +71,17 @@ void setup() {
     lines = true;
 
     imgTex = loadImage("glitch.jpg");
+    
+  myMovie = new Movie(this, "cookin.mp4");
+  myMovie.loop();
 }
 
 
 void draw() {
     background(0);
-    setView();
+    //setView();
 
-    //image(imgTex, 0,0,200,200);
+    //image(myMovie, 0,0,200,200);
 
     updateLoopRecording();
     //int [] depth = kinect.getRawDepthData();
@@ -141,28 +146,29 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
 
                 float gridX = x * pixelSkip;
                 float gridY = y * pixelSkip;
-                float gridU = x / right;
-                float gridV = y / bottom;
+                float gridU = float(x) / float(right);
+                float gridV = float(y) / float(bottom);
                 float gridRightX = (x + pixelSkip) * pixelSkip;
                 float gridRightY = gridY;
                 //println(gridRightY);
-                float gridRightU = (x + pixelSkip) / right;
-                float gridRightV = y / bottom;
+                float gridRightU = float((x + pixelSkip)) / float(right);
+                float gridRightV = float(y) / float(bottom);
                 float gridDownRightX = (x + pixelSkip) * pixelSkip;
                 float gridDownRightY = (y + pixelSkip) * pixelSkip;
-                float gridDownRightU = (x + pixelSkip) / right;
-                float gridDownRightV = (y + pixelSkip) / bottom;
+                float gridDownRightU = float((x + pixelSkip)) / float(right);
+                float gridDownRightV = float((y + pixelSkip)) / float(bottom);
                 float gridDownX = gridX;
                 float gridDownY = (y + pixelSkip) * pixelSkip;
-                float gridDownU = x / right;
-                float gridDownV = (y + pixelSkip) / bottom;
-
+                float gridDownU = float(x) / float(right);
+                float gridDownV = float((y + pixelSkip)) / float(bottom);
+                
+                //println(gridU);
                 beginShape(beginner);
 
-                texture(imgTex);
-                textureWrap(Texture.REPEAT);
+                texture(myMovie);
+                //textureWrap(Texture.REPEAT);
                 textureMode(NORMAL);
-                translate(x * scaleFactor, y * scaleFactor, scaleFactor * curZ / 40 f);
+                translate(x * scaleFactor, y * scaleFactor, scaleFactor * curZ / 40f);
                 translate(-400, -500, 0);
                 //println(curZ);
                 float curZ2 = map(curZ, 400, 1100, 0, -400);
@@ -224,6 +230,11 @@ void mousePressed() {
     clickY = mouseY;
     clickRotationX = rotationX;
     clickRotationY = rotationY;
+}
+
+// Called every time a new frame is available to read
+void movieEvent(Movie m) {
+  m.read();
 }
 
 void setView() {
