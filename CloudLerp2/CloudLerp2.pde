@@ -144,25 +144,26 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
                 pushMatrix();
                 int beginner = TRIANGLES;
 
-                float gridX = x * pixelSkip;
-                float gridY = y * pixelSkip;
+                float gridX = float(x) * float(pixelSkip);
+                float gridY = float(y) * float(pixelSkip);
                 float gridU = float(x) / float(right);
                 float gridV = float(y) / float(bottom);
-                float gridRightX = (x + pixelSkip) * pixelSkip;
+                float gridRightX = float((x + pixelSkip)) * float(pixelSkip);
                 float gridRightY = gridY;
                 //println(gridRightY);
                 float gridRightU = float((x + pixelSkip)) / float(right);
                 float gridRightV = float(y) / float(bottom);
-                float gridDownRightX = (x + pixelSkip) * pixelSkip;
-                float gridDownRightY = (y + pixelSkip) * pixelSkip;
+                float gridDownRightX = float((x + pixelSkip)) * float(pixelSkip);
+                float gridDownRightY = float((y + pixelSkip)) * float(pixelSkip);
                 float gridDownRightU = float((x + pixelSkip)) / float(right);
                 float gridDownRightV = float((y + pixelSkip)) / float(bottom);
                 float gridDownX = gridX;
-                float gridDownY = (y + pixelSkip) * pixelSkip;
+                float gridDownY = float((y + pixelSkip)) * float(pixelSkip);
                 float gridDownU = float(x) / float(right);
                 float gridDownV = float((y + pixelSkip)) / float(bottom);
                 
-                //println(gridU);
+               
+                //println(gridX);
                 beginShape(beginner);
 
                 texture(myMovie);
