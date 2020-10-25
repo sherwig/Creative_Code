@@ -1,6 +1,4 @@
-//cloudLerp2 
-
-// CloudLerp.pde
+//cloudLerp2
 
 import KinectPV2.*;
 import org.openkinect.freenect.*;
@@ -79,21 +77,16 @@ void draw()
 {
   background(0);
   setView();
-  //scale(.5);
-  
+
   //image(imgTex, 0,0,200,200);
-  
+
   updateLoopRecording();
   //int [] depth = kinect.getRawDepthData();
-  //pushMatrix();
   update();
-  //pushMatrix();
   //scale(3);
   //image(kinect.getDepthImage()  , 0, 0);
   //popMatrix();
   ////image(kinect.getPointCloudDepthImage(), 512, 0);
-  //int tester=getDepthAt(100, 100);
-  //println(tester);
 
 
 
@@ -142,8 +135,6 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
    //  println(yLerp);
    //}
 
-
-
   for (int x= left; x<right; x+=pixelSkip)
   {
     for (int y= top; y<bottom; y+=pixelSkip)
@@ -156,38 +147,15 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
         //stroke(r, g+60*sin(frameCount*sinSpeed), b, 127+80*sin(frameCount*sinSpeed));
         //stroke(r, g+60*sin(frameCount*sinSpeed), b, 255);
 
-        //stroke(255,alpha*255f);
         strokeWeight(1);
         pushMatrix();
-        //int beginner=LINES;
         int beginner=TRIANGLES;
-        //if(lines==true)
-        //{
-        //   beginner=LINES;
-        //}
-        //else if(triangles==true)
-        //{
-        //  //println("HERE2");
-        //   beginner=TRIANGLES;
-        //}
 
-        //else if(fan==true)
-        //{
-        //  //println("HERE2");
-        //   beginner=TRIANGLE_FAN;
-        //}
-
-        //else if(quad==true)
-        //{
-        //  //println("HERE2");
-        //   beginner=QUAD_STRIP;
-        //}
-
-      float gridX = x *pixelSkip ;   
+      float gridX = x *pixelSkip ;
       float gridY = y *pixelSkip;
       float gridU = x /right;
       float gridV = y /bottom;
-      float gridRightX = (x+pixelSkip) *pixelSkip; 
+      float gridRightX = (x+pixelSkip) *pixelSkip;
       float gridRightY = gridY;
        //println(gridRightY);
       float gridRightU = (x+pixelSkip) /right;
@@ -200,22 +168,16 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
       float gridDownY = (y+pixelSkip) *pixelSkip;
       float gridDownU = x/right;
       float gridDownV =(y+pixelSkip)/bottom;
-      //z=lerp(z,z2,abs(sin(loopProgressRadians)));
-      //vertex(x+cos(frameCount*.01), y+cos(frameCount*.01), z);
 
         beginShape(beginner);
-        
+
         texture(imgTex);
+        textureWrap(Texture.REPEAT);
         textureMode(NORMAL);
         translate(x*scaleFactor, y*scaleFactor, scaleFactor*curZ/40f);
         translate(-400,-500,0);
         //println(curZ);
         float curZ2=map(curZ,400,1100,0,-400);
-
-        //float curz2= noise(X,Y);
-
-        //lerperX=lerp(xLerp,x2,abs(sin(loopProgressRadians)));
-        //lerperY=lerp(yLerp,y2,abs(sin(loopProgressRadians)));
 
         vertex(gridX, gridY, curZ2 , gridU, gridV);
         vertex(gridRightX, gridRightY, curZ2 , gridRightU, gridRightV);
@@ -226,45 +188,9 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
         vertex(gridDownRightX, gridDownRightY, curZ2 , gridDownRightU, gridDownRightV);
         vertex(gridDownX, gridDownY, curZ2 , gridDownU, gridDownV);
 
-
-
-
-        //println(lerperX, lerperY,abs(sin(loopProgressRadians)) );
-        // vertex(lerperX,lerperY,curZ2+lerperX);
-        // vertex(5,-5,curZ2);
-
-        //println(curZ2);
-        //vertex(0+sinOffset*sin(frameCount*sinSpeed), 0,curZ2);
-        //vertex(5, 10,curZ2);
-        //vertex(10+sinOffset*sin(frameCount*sinSpeed), 0,curZ2);
-        //vertex(15+sinOffset*cos(frameCount*sinSpeed), 10,curZ2);
-
-        //vertex(20, 0+sinOffset*sin(frameCount*sinSpeed),curZ2);
-        //vertex(25+sinOffset*cos(frameCount*sinSpeed), 10,curZ2);
-        //vertex(30, 0+sinOffset*sin(frameCount*.05),curZ2);
-        //vertex(35+sinOffset*sin(frameCount*.05), 10,curZ2);
-
-
-
-        //vertex(0+sinOffset*sin(frameCount*sinSpeed), 0);
-        //vertex(5, 10);
-        //vertex(10+sinOffset*sin(frameCount*sinSpeed), 0);
-        //vertex(15+sinOffset*cos(frameCount*sinSpeed), 10);
-
-        //vertex(20, 0+sinOffset*sin(frameCount*sinSpeed));
-        //vertex(25+sinOffset*cos(frameCount*sinSpeed), 10);
-        //vertex(30, 0+sinOffset*sin(frameCount*.05));
-        //vertex(35+sinOffset*sin(frameCount*.05), 10);
-
-        //point(0,0);
-        //rect(0,0,5,5);
         endShape();
         popMatrix();
       }
-      //else
-      //{
-      //  fill(255, 0, 0, alpha*255f);
-      //}
     }
   }
   popMatrix();
