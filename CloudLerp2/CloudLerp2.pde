@@ -42,9 +42,11 @@ float rotationX = 1, rotationY = 0.3, targetRotationX = 0, targetRotationY = 0, 
 
 Boolean lines, triangles, fan, quad;
 
+int spacing=1;
+float spacer=5;
+
 ControlP5 cp5;
 PImage imgTex;
-
 
 
 void setup() {
@@ -64,6 +66,8 @@ void setup() {
     cp5.addSlider("b").setPosition(25, 125).setRange(0, 255).setSize(200, 20);
     cp5.addSlider("sinSpeed").setPosition(25, 150).setRange(0.001, 0.1).setSize(200, 20);
     cp5.addSlider("skip").setPosition(25, 175).setRange(1, 40).setSize(200, 20);
+    cp5.addSlider("spacing").setPosition(25, 200).setRange(1, 40).setSize(200, 20);
+    cp5.addSlider("spacer").setPosition(25, 225).setRange(.1, 40).setSize(200, 20);
     popMatrix();
 
     int buffSize = kinect.getDepthImage().height * kinect.getDepthImage().width;
@@ -92,9 +96,10 @@ void draw() {
     ////image(kinect.getPointCloudDepthImage(), 512, 0);
 
 
-
+    pushMatrix(); 
+    //scale(2);
     drawPointCloud(skip, 50, 3, 400, 1100, 0, 0, KHEIGHT, KWIDTH);
-    //popMatrix();
+    popMatrix();
 }
 
 
@@ -143,34 +148,53 @@ void drawPointCloud(int pixelSkip, float alpha, float scale, float depthClose, f
                 strokeWeight(1);
                 pushMatrix();
                 int beginner = TRIANGLES;
-
-                float gridX = float(x) * float(pixelSkip);
-                float gridY = float(y) * float(pixelSkip);
+                   
+                float gridX = float(x) * float(spacing);
+                float gridY = float(y) * float(spacing);
                 float gridU = float(x) / float(right);
                 float gridV = float(y) / float(bottom);
-                float gridRightX = float((x + pixelSkip)) * float(pixelSkip);
+                float gridRightX = float((x + pixelSkip))+spacer * float(spacing);
                 float gridRightY = gridY;
                 //println(gridRightY);
                 float gridRightU = float((x + pixelSkip)) / float(right);
                 float gridRightV = float(y) / float(bottom);
-                float gridDownRightX = float((x + pixelSkip)) * float(pixelSkip);
-                float gridDownRightY = float((y + pixelSkip)) * float(pixelSkip);
+                float gridDownRightX = float((x + pixelSkip))+spacer * float(spacing);
+                float gridDownRightY = float((y + pixelSkip))+spacer * float(spacing);
                 float gridDownRightU = float((x + pixelSkip)) / float(right);
                 float gridDownRightV = float((y + pixelSkip)) / float(bottom);
                 float gridDownX = gridX;
-                float gridDownY = float((y + pixelSkip)) * float(pixelSkip);
+                float gridDownY = float((y + pixelSkip))+spacer * float(spacing);
                 float gridDownU = float(x) / float(right);
                 float gridDownV = float((y + pixelSkip)) / float(bottom);
                 
+                
+                
+                //float gridX = float(x) * float(pixelSkip);
+                //float gridY = float(y) * float(pixelSkip);
+                //float gridU = float(x) / float(right);
+                //float gridV = float(y) / float(bottom);
+                //float gridRightX = float((x + pixelSkip)) * float(pixelSkip);
+                //float gridRightY = gridY;
+                ////println(gridRightY);
+                //float gridRightU = float((x + pixelSkip)) / float(right);
+                //float gridRightV = float(y) / float(bottom);
+                //float gridDownRightX = float((x + pixelSkip)) * float(pixelSkip);
+                //float gridDownRightY = float((y + pixelSkip)) * float(pixelSkip);
+                //float gridDownRightU = float((x + pixelSkip)) / float(right);
+                //float gridDownRightV = float((y + pixelSkip)) / float(bottom);
+                //float gridDownX = gridX;
+                //float gridDownY = float((y + pixelSkip)) * float(pixelSkip);
+                //float gridDownU = float(x) / float(right);
+                //float gridDownV = float((y + pixelSkip)) / float(bottom);
+                //println(gridX,gridDownRightX,gridY,gridDownRightY);
                
                 //println(gridX);
                 beginShape(beginner);
-
                 texture(myMovie);
                 //textureWrap(Texture.REPEAT);
                 textureMode(NORMAL);
                 translate(x * scaleFactor, y * scaleFactor, scaleFactor * curZ / 40f);
-                translate(-400, -500, 0);
+                translate(0,-200,300);
                 //println(curZ);
                 float curZ2 = map(curZ, 400, 1100, 0, -400);
 
